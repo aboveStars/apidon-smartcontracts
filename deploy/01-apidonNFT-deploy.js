@@ -7,19 +7,16 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
 
-  const blockSocialv2simplepayment = await deploy(
-    "BlockSocialV2SimplePayment",
-    {
-      from: deployer,
-      args: [],
-      log: true,
-      waitConfirmations: network.config.blockConfirmations,
-    }
-  );
+  const apidonNFT = await deploy("ApidonNFT", {
+    from: deployer,
+    args: [],
+    log: true,
+    waitConfirmations: network.config.blockConfirmations,
+  });
 
   if (!localChains.includes(network.name)) {
-    await verify(blockSocialv2simplepayment.address, []);
+    await verify(apidonNFT.address, []);
   }
 };
 
-module.exports.tags = ["all", "BlockSocialV2SimplePayment"];
+module.exports.tags = ["all", "apidonNFT"];

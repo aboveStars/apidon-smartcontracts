@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.2 <0.9.0;
 
-contract BlockSocialV2SimplePayment {
+contract ApidonPayment {
     address public owner;
 
     mapping(address => bool) public locked;

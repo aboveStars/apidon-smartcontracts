@@ -7,16 +7,19 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
 
-  const blockSocial = await deploy("BlockSocialV2", {
-    from: deployer,
-    args: [],
-    log: true,
-    waitConfirmations: network.config.blockConfirmations,
-  });
+  const apidonPayment = await deploy(
+    "ApidonPayment",
+    {
+      from: deployer,
+      args: [],
+      log: true,
+      waitConfirmations: network.config.blockConfirmations,
+    }
+  );
 
   if (!localChains.includes(network.name)) {
-    await verify(blockSocial.address, []);
+    await verify(apidonPayment.address, []);
   }
 };
 
-module.exports.tags = ["all", "BlockSocial"];
+module.exports.tags = ["all", "apidonPayment"];

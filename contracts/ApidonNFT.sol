@@ -4,12 +4,12 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract BlockSocialV2 is ERC721URIStorage, Ownable {
+contract ApidonNFT is ERC721URIStorage, Ownable {
     uint256 public s_tokenCounter;
 
     event Minted(address indexed from, uint256 indexed tokenId);
 
-    constructor() ERC721("BlockSocialNFT", "BSN") {
+    constructor() ERC721("ApidonNFT", "APDN") {
         s_tokenCounter = 0;
     }
 
